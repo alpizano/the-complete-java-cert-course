@@ -31,7 +31,6 @@ public class StockFileApplication {
 		List<HashMap<String, Double>> dataResult = new ArrayList<>();
 		// Insert your code here..
 
-
 		// Iterate through lines
 		for(String linesValues: lines) {
 			HashMap<String,Double> map = new HashMap<>();
@@ -50,7 +49,6 @@ public class StockFileApplication {
 
 		//System.out.println(lines);
 		//System.out.println(lines.get(0));
-
 
 		return dataResult;
 	}
