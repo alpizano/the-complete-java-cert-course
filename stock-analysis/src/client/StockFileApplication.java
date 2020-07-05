@@ -11,6 +11,7 @@ import fileprocessors.StockFileReader;
 public class StockFileApplication {
 	
 	public static void main(String args[]) throws IOException{
+		// Read in csv
 		StockFileReader fr = new StockFileReader("table.csv");
 		
 		List<HashMap<String, Double>> dataResult = populateStockFileData(fr.getHeaders(), fr.readFileData());

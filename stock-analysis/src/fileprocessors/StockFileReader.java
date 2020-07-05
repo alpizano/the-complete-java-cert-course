@@ -18,8 +18,8 @@ public class StockFileReader {
 	public List<String> getHeaders() throws IOException{
 		String line = readFirstLine(filePath);
 		String [] header = line.split(",");
-		List<String> values = new ArrayList<String>();
-		values = Arrays.asList(header);
+		// Convert String[] to List
+		List<String> values = Arrays.asList(header);
 		return values;
 	}
 	
