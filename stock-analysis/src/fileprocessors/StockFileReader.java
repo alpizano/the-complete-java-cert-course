@@ -14,12 +14,17 @@ public class StockFileReader {
 	public StockFileReader(String filePath){
 		this.filePath = filePath;
 	}
-	
+
+	/**
+	 * Returns a List of type String of the headers of the csv file
+	 * @return The headers of the csv file
+	 * @throws IOException
+	 */
 	public List<String> getHeaders() throws IOException{
 		String line = readFirstLine(filePath);
 		String [] header = line.split(",");
-		// Convert String[] to List
 		List<String> values = Arrays.asList(header);
+		System.out.println(values);
 		return values;
 	}
 	
@@ -37,6 +42,19 @@ public class StockFileReader {
 	public List<String> readFileData() throws IOException{
 		List<String> lines = new ArrayList<String>();
 		// Insert your code here..
+
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+			String line = bufferedReader.readLine();
+			line = bufferedReader.readLine();
+
+			while( line != null) {
+				//System.out.println(line);
+				lines.add(line);
+				line = bufferedReader.readLine();
+			}
+		}
+
+
 	    return lines;
 	}
 	

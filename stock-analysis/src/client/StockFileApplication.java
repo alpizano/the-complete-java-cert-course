@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import fileprocessors.StockFileData;
 import fileprocessors.StockFileReader;
@@ -11,7 +12,6 @@ import fileprocessors.StockFileReader;
 public class StockFileApplication {
 	
 	public static void main(String args[]) throws IOException{
-		// Read in csv
 		StockFileReader fr = new StockFileReader("table.csv");
 		
 		List<HashMap<String, Double>> dataResult = populateStockFileData(fr.getHeaders(), fr.readFileData());
@@ -30,6 +30,26 @@ public class StockFileApplication {
 	public static List<HashMap<String, Double>> populateStockFileData(List<String> headers, List<String> lines){
 		List<HashMap<String, Double>> dataResult = new ArrayList<>();
 		// Insert your code here..
+
+		// Iterate through lines
+		for(String linesValues: lines) {
+			HashMap<String,Double> map = new HashMap<>();
+			// Split string lines into string array
+			String[] valuesArray = linesValues.split(",");
+
+			map.put(headers.get(0), Double.parseDouble(valuesArray[0]));
+			map.put(headers.get(1), Double.parseDouble(valuesArray[1]));
+			map.put(headers.get(2), Double.parseDouble(valuesArray[2]));
+			map.put(headers.get(3), Double.parseDouble(valuesArray[3]));
+			map.put(headers.get(4), Double.parseDouble(valuesArray[4]));
+			map.put(headers.get(5), Double.parseDouble(valuesArray[5]));
+
+			dataResult.add(map);
+		}
+
+		//System.out.println(lines);
+		//System.out.println(lines.get(0));
+
 		return dataResult;
 	}
 	
