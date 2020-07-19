@@ -3,6 +3,8 @@ package client;
 import java.io.IOException;
 
 import aggregators.AggregatorProcessor;
+import aggregators.MaxAggregator;
+import aggregators.MeanAggregator;
 import aggregators.MinAggregator;
 
 public class AggregatorApp {
@@ -21,9 +23,16 @@ public class AggregatorApp {
 		**/
 
 //		MinAggregator agg = new MinAggregator();
-//		AggregatorProcessor<MinAggregator> aggsProcessor = new AggregatorProcessor<MinAggregator>(agg, "table.csv");
-//		double value = aggsProcessor.runAggregator(1);
-//		System.out.println(value);
+//		MaxAggregator agg = new MaxAggregator();
+		MeanAggregator agg = new MeanAggregator();
+
+//		AggregatorProcessor<MinAggregator> aggsProcessor = new AggregatorProcessor<>(agg, "table.csv");
+//		AggregatorProcessor<MaxAggregator> aggsProcessor = new AggregatorProcessor<>(agg, "table.csv");
+		AggregatorProcessor<MeanAggregator> aggsProcessor = new AggregatorProcessor<>(agg, "table.csv");
+
+		// 1 represents column number
+		double value = aggsProcessor.runAggregator(3);
+		System.out.println(value);
 	
 
 	}

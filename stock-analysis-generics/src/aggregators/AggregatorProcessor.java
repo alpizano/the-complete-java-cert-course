@@ -3,9 +3,6 @@ package aggregators;
 import client.StockFileApplication;
 import fileprocessors.StockFileReader;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +20,7 @@ public class AggregatorProcessor<E extends Aggregator> {
         List<Double> values = agg.getValues();
 
         StockFileReader fr = new StockFileReader(filename);
-        String key = fr.getHeaders().get(col);
+        String key = fr.getHeaders().get(col-1);
         List<HashMap<String, Double>> dataResult = StockFileApplication.populateStockFileData(fr.getHeaders(), fr.readFileData());
 
         // put all values from map inside List<Double> values
