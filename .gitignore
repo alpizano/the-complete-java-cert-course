@@ -1,7 +1,7 @@
 .class
-/.idea
-/bin
-/.settings
+/*/.idea
+*/bin
+*/.settings
 .DS_Store
 .project
 *.iml
